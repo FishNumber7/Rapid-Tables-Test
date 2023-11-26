@@ -455,9 +455,9 @@ public class RapidTablesTest {
         driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
 
         //verify
-        assertEquals("Hex number", driver.findElement(By.xpath("//*[@for='y']")).getText());
+        assertEquals("Hex number (1 digit)", driver.findElement(By.xpath("//*[@for='y']")).getText());
         assertEquals("-1", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
-        assertEquals("Decimal number", driver.findElement(By.xpath("//*[@for='y2']")).getText());
+        assertEquals("Decimal number (1 digit)", driver.findElement(By.xpath("//*[@for='y2']")).getText());
         assertEquals("-1", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
     }
 
@@ -680,11 +680,11 @@ public class RapidTablesTest {
 
         //verify again
         assertEquals("", driver.findElement(By.id("x")).getText());
-        assertEquals("Hex number (1 digit)", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
+        assertEquals("Hex number", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
         assertEquals("", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
-        assertEquals("Hex signed 2's complement (4 digits)", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
+        assertEquals("Hex signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
         assertEquals("", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
-        assertEquals("Binary number (1 digit)", driver.findElement(By.xpath("//*[@id='y5label']")).getText());
+        assertEquals("Binary number", driver.findElement(By.xpath("//*[@id='y5label']")).getText());
         assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
 

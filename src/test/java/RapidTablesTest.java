@@ -852,9 +852,9 @@ public class RapidTablesTest {
 
         //execute again
         driver.findElement(By.id("fdbkarea")).sendKeys("hi!");
-        driver.findElement(By.xpath("//*[@id='fdbkform']/button")).click();
 
         //verify again
+        assertEquals("Please lengthen this text to 30 characters or more (you are currently using 3 characters).", driver.findElement(By.id("fdbkarea")).getAttribute("validationMessage"));
         assertEquals("hi!", driver.findElement(By.id("fdbkarea")).getAttribute("value"));
     }
 
@@ -885,7 +885,7 @@ public class RapidTablesTest {
         driver.findElement(By.xpath("//*[@id='fdbkform']/button")).click();
 
         //verify again
-        assertEquals("true", driver.findElement(By.id("fdbkarea")).getAttribute("required"));
+        assertEquals("Please fill out this field.", driver.findElement(By.id("fdbkarea")).getAttribute("validationMessage"));
     }
 
     // Test Case 47 (Emily)

@@ -45,7 +45,7 @@ public class RapidTablesTest {
         driver.manage().timeouts().implicitlyWait(prevDuration);
     }
 
-    //Test Case 1
+    //Test Case 1 (Sam)
     @Test
     public void baseCaseBinaryToDecimalTest() {
         //setup
@@ -69,7 +69,7 @@ public class RapidTablesTest {
         assertEquals("1", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
     }
 
-    //Test Case 2
+    //Test Case 2 (Emily)
     @Test
     public void baseCaseDecimalToHexadecimalTest() {
         //setup
@@ -93,7 +93,7 @@ public class RapidTablesTest {
         assertEquals("-1", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
 
-    //Test Case 3
+    //Test Case 3 (Sam)
     @Test
     public void baseCaseOneDecimalToDecimalTest() {
         //setup
@@ -109,7 +109,7 @@ public class RapidTablesTest {
         assertEquals("Number Conversion", driver.getTitle());
     }
 
-    //Test Case 4
+    //Test Case 4 (Sam)
     @Test
     public void baseCaseOneOctalToDecimalTest() {
         //setup
@@ -132,7 +132,7 @@ public class RapidTablesTest {
         assertEquals("1", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
     }
 
-    //Test Case 5
+    //Test Case 5 (Sam)
     @Test
     public void baseCaseOneHexadecimalToDecimalTest() {
         //setup
@@ -156,7 +156,7 @@ public class RapidTablesTest {
         assertEquals("1", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
     }
 
-    //Test Case 6
+    //Test Case 6 (Sam)
     @Test
     public void baseCaseOneTextToDecimalTest() {
         //setup & execute
@@ -171,7 +171,7 @@ public class RapidTablesTest {
         assertEquals("Number Conversion", driver.getTitle());
    }
 
-    //Test Case 7
+    //Test Case 7 (Sam)
     @Test
     public void baseCaseOneBinaryToBinaryTest() {
         //setup & execute
@@ -186,7 +186,7 @@ public class RapidTablesTest {
         assertEquals("Number Conversion", driver.getTitle());
     }
 
-    //Test Case 7
+    //Test Case 8 (Sam)
     @Test
     public void baseCaseOneBinaryToOctalTest() {
         //setup
@@ -208,7 +208,7 @@ public class RapidTablesTest {
         assertEquals("1", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
     }
 
-    //Test Case 8
+    //Test Case 9 (Sam)
     @Test
     public void baseCaseOneBinaryToHexadecimalTest() {
         //setup
@@ -230,7 +230,7 @@ public class RapidTablesTest {
         assertEquals("1", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
     }
 
-    //Test Case 9
+    //Test Case 10 (Sam)
     @Test
     public void baseCaseOneBinaryToTextTest() {
         //setup
@@ -249,7 +249,7 @@ public class RapidTablesTest {
         assertEquals("/", driver.findElement(By.xpath("//*[@id='txt']")).getAttribute("value"));
     }
 
-    //Test Case 10
+    //Test Case 11 (Sam)
     @Test
     public void baseCaseOneEmptyValueTest() {
         //setup
@@ -273,7 +273,7 @@ public class RapidTablesTest {
         assertEquals("rgba(255, 240, 240, 1)", driver.findElement(By.xpath("//*[@id='x']")).getCssValue("background-color"));
     }
 
-    //Test Case 11
+    //Test Case 12 (Sam)
     @Test
     public void baseCaseOneNegativeValueTest() {
         //setup
@@ -297,7 +297,7 @@ public class RapidTablesTest {
         assertEquals("-1", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
     }
 
-    //Test Case 12
+    //Test Case 13 (Sam)
     @Test
     public void baseCaseOneZeroValueTest() {
         //setup
@@ -321,7 +321,7 @@ public class RapidTablesTest {
         assertEquals("0", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
     }
 
-    //Test Case 13
+    //Test Case 14 (Sam)
     @Test
     public void baseCaseOneNoConvert() {
         //setup
@@ -342,7 +342,7 @@ public class RapidTablesTest {
         assertEquals("", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
     }
 
-    //Test Case 14
+    //Test Case 15 (Sam)
     @Test
     public void baseCaseOneResetIsClickedTest() {
         //setup
@@ -378,7 +378,7 @@ public class RapidTablesTest {
         assertEquals("", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
     }
 
-    //Test Case 15
+    //Test Case 16 (Sam)
     @Test
     public void baseCaseOneSwapIsClickedTest() {
         //setup

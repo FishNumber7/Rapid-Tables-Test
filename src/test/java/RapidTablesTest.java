@@ -536,10 +536,10 @@ public class RapidTablesTest {
         driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
 
         //execute again
-        driver.findElement(By.xpath("//*[@id='rcol']/ul[1]/li[36]/a")).click();
+        driver.findElement(By.xpath("//*[@id='rcol']/ul[1]/li[35]/a")).click();
 
         //verify
-        assertEquals("Scientific Notation Converter", driver.getTitle());
+        assertEquals("Roman Numerals Converter", driver.getTitle());
     }
 
     //Test Case 23 (Sam)
@@ -630,14 +630,14 @@ public class RapidTablesTest {
         driver.navigate().forward();
 
         //verify
-        assertEquals("Decimal to Binary Converter", driver.getTitle());
-        assertEquals("", driver.findElement(By.id("x")).getText());
-        assertEquals("Binary number", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
-        assertEquals("", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
-        assertEquals("Binary signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
-        assertEquals("", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
-        assertEquals("Hex number", driver.findElement(By.xpath("//*[@id='y5label']")).getText());
-        assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
+        assertEquals("Binary to Decimal Converter", driver.getTitle());
+        assertEquals("1", driver.findElement(By.id("x")).getText());
+        assertEquals("Decimal number (1 digit)", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
+        assertEquals("1", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
+        assertEquals("Decimal from signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
+        assertEquals("N/A", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
+        assertEquals("Hex number (1 digit)", driver.findElement(By.xpath("//*[@id='y3label']")).getText());
+        assertEquals("1", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
     }
 
     //Test Case 27 (Sam)
@@ -660,12 +660,12 @@ public class RapidTablesTest {
 
         //verify
         assertEquals("", driver.findElement(By.id("x")).getText());
-        assertEquals("Binary number", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
+        assertEquals("Decimal number", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
         assertEquals("", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
-        assertEquals("Binary signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
+        assertEquals("Decimal from signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
         assertEquals("", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
-        assertEquals("Hex number", driver.findElement(By.xpath("//*[@id='y5label']")).getText());
-        assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
+        assertEquals("Hex number", driver.findElement(By.xpath("//*[@id='y3label']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
     }
 
     //Test Case 28 (Sam)
@@ -1222,13 +1222,13 @@ public class RapidTablesTest {
 
         //verify
         assertEquals("Decimal to Hexadecimal Converter", driver.getTitle());
-        assertEquals("", driver.findElement(By.id("x")).getText());
-        assertEquals("Hex number", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
-        assertEquals("", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
-        assertEquals("Hex signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
-        assertEquals("", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
-        assertEquals("Binary number", driver.findElement(By.xpath("//*[@id='y5label']")).getText());
-        assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
+        assertEquals("-1", driver.findElement(By.id("x")).getText());
+        assertEquals("Hex number (1 digit)", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
+        assertEquals("-1", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
+        assertEquals("Hex signed 2's complement (4 digits)", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
+        assertEquals("FFFF", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
+        assertEquals("Binary number (1 digit)", driver.findElement(By.xpath("//*[@id='y5label']")).getText());
+        assertEquals("-1", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
 
     // Test Case 53 (Emily)

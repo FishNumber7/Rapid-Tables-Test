@@ -2,7 +2,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -431,9 +430,9 @@ public class RapidTablesTest {
         captcha();
 
         Select from = new Select(driver.findElement(By.id("unit1")));
-        from.selectByVisibleText("Decimal");
+        from.selectByVisibleText("Binary");
         Select to = new Select(driver.findElement(By.id("unit2")));
-        to.selectByVisibleText("Hexadecimal");
+        to.selectByVisibleText("Decimal");
         driver.findElement(By.id("x")).sendKeys("1");
 
         //execute
@@ -453,6 +452,221 @@ public class RapidTablesTest {
         assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
 
+    //Test Case 19 (Sam)
+    @Test
+    public void baseCaseOneSeeAlsoButtonIsClickedTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Binary");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys("1");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //execute again
+        driver.findElement(By.xpath("//*[@id='doc']/ul/li[4]/a")).click();
+
+        //verify
+        assertEquals("Binary Calculator", driver.getTitle());
+
+    }
+
+    //Test Case 20 (Sam)
+    @Test
+    public void baseCaseOneImprovePageTextBoxNotEmptyTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Binary");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys("1");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //execute again
+        driver.findElement(By.id("fdbkarea")).sendKeys("hi!");
+
+        //verify
+        assertEquals("Please lengthen this text to 30 characters or more (you are currently using 3 characters).", driver.findElement(By.id("fdbkarea")).getAttribute("validationMessage"));
+        assertEquals("hi!", driver.findElement(By.id("fdbkarea")).getAttribute("value"));
+    }
+
+    //Test Case 21 (Sam)
+    @Test
+    public void baseCaseOneSubmitFeedbackIsClickedTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Binary");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys("1");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //execute again
+        driver.findElement(By.xpath("//*[@id='fdbkform']/button")).click();
+
+        //verify
+        assertEquals("Please fill out this field.", driver.findElement(By.id("fdbkarea")).getAttribute("validationMessage"));
+    }
+
+    //Test Case 22 (Sam)
+    @Test
+    public void baseCaseOneNumberConversionLinkIsClickedTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Binary");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys("1");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //execute again
+        driver.findElement(By.xpath("//*[@id='rcol']/ul[1]/li[36]/a")).click();
+
+        //verify
+        assertEquals("Scientific Notation Converter", driver.getTitle());
+    }
+
+    //Test Case 23 (Sam)
+    @Test
+    public void baseCaseOneRapidTablesSectionLinkIsClickedTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Binary");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys("1");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //execute again
+        driver.findElement(By.xpath("//*[@id='rcol']/ul[2]/li[3]/a")).click();
+
+        //verify
+        assertEquals("About - RapidTables.com", driver.getTitle());
+    }
+
+    //Test Case 24 (Sam)
+    @Test
+    public void baseCaseOneFooterLinkIsClickedTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Binary");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys("1");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //execute again
+        driver.findElement(By.xpath("//*[@id='footer']/p/a[3]")).click();
+
+        //verify
+        assertEquals("Terms of Use", driver.getTitle());
+    }
+
+    //Test Case 25 (Sam)
+    @Test
+    public void baseCaseOneBackButtonIsClickedTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Binary");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys("1");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //execute again
+        driver.navigate().back();
+
+        //verify
+        assertEquals("Number Conversion", driver.getTitle());
+        assertEquals("Binary", new Select(driver.findElement(By.id("unit1"))).getFirstSelectedOption().getText());
+        assertEquals("Decimal", new Select(driver.findElement(By.id("unit2"))).getFirstSelectedOption().getText());
+    }
+
+    //Test Case 26 (Sam)
+    @Test
+    public void baseCaseOneForwardButtonIsClickedTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Binary");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys("1");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //execute again
+        driver.navigate().back();
+        driver.navigate().forward();
+
+        //verify
+        assertEquals("Decimal to Binary Converter", driver.getTitle());
+        assertEquals("", driver.findElement(By.id("x")).getText());
+        assertEquals("Binary number", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
+        assertEquals("Binary signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
+        assertEquals("Hex number", driver.findElement(By.xpath("//*[@id='y5label']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
+    }
+
+    //Test Case 27 (Sam)
+    @Test
+    public void baseCaseOneRefreshButtonIsClickedTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Binary");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys("1");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //execute again
+        driver.navigate().refresh();
+
+        //verify
+        assertEquals("", driver.findElement(By.id("x")).getText());
+        assertEquals("Binary number", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
+        assertEquals("Binary signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
+        assertEquals("Hex number", driver.findElement(By.xpath("//*[@id='y5label']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
+    }
 
     //Test Case 28 (Sam)
     @Test
@@ -983,6 +1197,8 @@ public class RapidTablesTest {
 
         //verify
         assertEquals("Number Conversion", driver.getTitle());
+        assertEquals("Decimal", new Select(driver.findElement(By.id("unit1"))).getFirstSelectedOption().getText());
+        assertEquals("Hexadecimal", new Select(driver.findElement(By.id("unit2"))).getFirstSelectedOption().getText());
     }
 
     // Test Case 52 (Emily)

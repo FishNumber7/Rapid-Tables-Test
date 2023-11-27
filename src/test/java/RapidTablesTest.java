@@ -399,8 +399,59 @@ public class RapidTablesTest {
         assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
 
+    //Test Case 17 (Sam)
+    @Test
+    public void baseCaseOneDigitGroupingTest() {
+        //TODO
+        //setup
+        captcha();
 
-    //Test Case 28 (Emily)
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Binary");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys("1");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //verify
+        assertEquals("Decimal number (1 digit)", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
+        assertEquals("1", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
+        assertEquals("Decimal from signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
+        assertEquals("N/A", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
+        assertEquals("Hex number (1 digit)", driver.findElement(By.xpath("//*[@id='y3label']")).getText());
+        assertEquals("1", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
+    }
+
+    //Test Case 28 (Sam)
+    @Test
+    public void baseCaseOneInvalidValueTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Binary");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys(".");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //verify
+        assertEquals("Decimal number", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
+        assertEquals("Decimal from signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
+        assertEquals("Hex number", driver.findElement(By.xpath("//*[@id='y3label']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
+        assertEquals("rgba(255, 240, 240, 1)", driver.findElement(By.xpath("//*[@id='x']")).getCssValue("background-color"));
+    }
+
+
+
+    //Test Case 29 (Emily)
     @Test
     public void baseCaseTwoBinaryToHexadecimalTest() {
         //setup
@@ -423,7 +474,7 @@ public class RapidTablesTest {
 
     }
 
-    // Test Case 29 (Emily)
+    // Test Case 30 (Emily)
     @Test
     public void baseCaseTwoOctalToHexadecimalTest() {
         //setup
@@ -445,7 +496,7 @@ public class RapidTablesTest {
         assertEquals("-1", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
     }
 
-    // Test Case 30 (Emily
+    // Test Case 31 (Emily
     @Test
     public void baseCaseTwoHexadecimalToHexadecimalTest() {
         //setup & execute
@@ -460,7 +511,7 @@ public class RapidTablesTest {
         assertEquals("Number Conversion", driver.getTitle());
     }
 
-    // Test Case 31 (Emily)
+    // Test Case 32 (Emily)
     @Test
     public void baseCaseTwoTextToHexadecimalTest() {
         //setup
@@ -479,7 +530,7 @@ public class RapidTablesTest {
         assertEquals("2D 31", driver.findElement(By.xpath("//*[@id='hex']")).getAttribute("value"));
     }
 
-    // Test Case 32 (Emily)
+    // Test Case 33 (Emily)
     @Test
     public void baseCaseTwoDecimalToBinaryTest() {
         //setup
@@ -504,7 +555,7 @@ public class RapidTablesTest {
 
     }
 
-    // Test Case 34 (Emily)
+    // Test Case 35 (Emily)
     @Test
     public void baseCaseTwoDecimalToOctalTest() {
         //setup
@@ -527,7 +578,7 @@ public class RapidTablesTest {
 
     }
 
-    // Test Case 35 (Emily)
+    // Test Case 36 (Emily)
     @Test
     public void baseCaseTwoDecimalToTextTest() {
         //setup
@@ -543,7 +594,7 @@ public class RapidTablesTest {
         assertEquals("Number Conversion", driver.getTitle());
     }
 
-    // Test Case 36 (Emily)
+    // Test Case 37 (Emily)
     @Test
     public void baseCaseTwoEmptyValueTest() {
         //setup
@@ -567,7 +618,7 @@ public class RapidTablesTest {
         assertEquals("rgba(255, 240, 240, 1)", driver.findElement(By.xpath("//*[@id='x']")).getCssValue("background-color"));
     }
 
-    // Test Case 37 (Emily)
+    // Test Case 38 (Emily)
     @Test
     public void baseCaseTwoZeroValueTest() {
         //setup
@@ -591,7 +642,7 @@ public class RapidTablesTest {
         assertEquals("0", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
 
-    // Test Case 38 (Emily)
+    // Test Case 39 (Emily)
     @Test
     public void baseCaseTwoPositiveValueTest() {
         //setup
@@ -615,7 +666,7 @@ public class RapidTablesTest {
         assertEquals("1", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
 
-    // Test Case 39 (Emily)
+    // Test Case 40 (Emily)
     @Test
     public void baseCaseTwoNoConvert() {
         //setup
@@ -636,7 +687,7 @@ public class RapidTablesTest {
         assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
 
-    // Test Case 40 (Emily)
+    // Test Case 41 (Emily)
     @Test
     public void baseCaseTwoResetIsClickedTest() {
         //setup
@@ -664,7 +715,7 @@ public class RapidTablesTest {
         assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
 
-    // Test Case 41 (Emily)
+    // Test Case 42 (Emily)
     @Test
     public void baseCaseTwoSwapIsClickedTest() {
         //setup
@@ -693,7 +744,7 @@ public class RapidTablesTest {
         assertEquals("", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
     }
 
-    // Test Case 42 (Emily)
+    // Test Case 43 (Emily)
     @Test
     public void baseCaseTwoDigitGroupingIsCheckedTest() {
         //setup
@@ -720,7 +771,7 @@ public class RapidTablesTest {
         assertEquals("-1", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
 
-    // Test Case 43 (Emily)
+    // Test Case 44 (Emily)
     @Test
     public void baseCaseTwoToChoiceToFromChoiceIsClickedTest() {
         //setup
@@ -749,7 +800,7 @@ public class RapidTablesTest {
         assertEquals("", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
     }
 
-    // Test Case 44 (Emily)
+    // Test Case 45 (Emily)
     @Test
     public void baseCaseTwoSeeAlsoButtonIsClickedTest() {
         //setup
@@ -771,7 +822,7 @@ public class RapidTablesTest {
         assertEquals("Number Conversion", driver.getTitle());
     }
 
-    // Test Case 45 (Emily)
+    // Test Case 46 (Emily)
     @Test
     public void baseCaseTwoImprovePageTextBoxNotEmptyTest() {
         //setup
@@ -794,7 +845,7 @@ public class RapidTablesTest {
         assertEquals("hi!", driver.findElement(By.id("fdbkarea")).getAttribute("value"));
     }
 
-    // Test Case 46 (Emily)
+    // Test Case 47 (Emily)
     @Test
     public void baseCaseTwoSubmitFeedbackIsClickedTest() {
         //setup
@@ -816,7 +867,7 @@ public class RapidTablesTest {
         assertEquals("Please fill out this field.", driver.findElement(By.id("fdbkarea")).getAttribute("validationMessage"));
     }
 
-    // Test Case 47 (Emily)
+    // Test Case 48 (Emily)
     @Test
     public void baseCaseTwoNumberConversionLinkIsClickedTest() {
         //setup
@@ -838,7 +889,7 @@ public class RapidTablesTest {
         assertEquals("Scientific Notation Converter", driver.getTitle());
     }
 
-    // Test Case 48 (Emily)
+    // Test Case 49 (Emily)
     @Test
     public void baseCaseTwoRapidsTablesSectionLinkIsClickedTest() {
         //setup
@@ -860,7 +911,7 @@ public class RapidTablesTest {
         assertEquals("About - RapidTables.com", driver.getTitle());
     }
 
-    // Test Case 49 (Emily)
+    // Test Case 50 (Emily)
     @Test
     public void baseCaseTwoFooterLinkIsClickedTest() {
         //setup
@@ -882,7 +933,7 @@ public class RapidTablesTest {
         assertEquals("Terms of Use", driver.getTitle());
     }
 
-    // Test Case 50 (Emily)
+    // Test Case 51 (Emily)
     @Test
     public void baseCaseTwoBackButtonIsClickedTest() {
         //setup
@@ -904,7 +955,7 @@ public class RapidTablesTest {
         assertEquals("Number Conversion", driver.getTitle());
     }
 
-    // Test Case 51 (Emily)
+    // Test Case 52 (Emily)
     @Test
     public void baseCaseTwoForwardButtonIsClickedTest() {
         //setup
@@ -934,7 +985,7 @@ public class RapidTablesTest {
         assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
 
-    // Test Case 52 (Emily)
+    // Test Case 53 (Emily)
     @Test
     public void baseCaseTwoRefreshButtonIsClickedTest() {
         //setup
@@ -961,6 +1012,31 @@ public class RapidTablesTest {
         assertEquals("Binary number", driver.findElement(By.xpath("//*[@id='y5label']")).getText());
         assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
 
+    }
+
+    //Test Case 54 (Emily)
+    @Test
+    public void baseCaseTwoInvalidValueTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Decimal");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Hexadecimal");
+        driver.findElement(By.id("x")).sendKeys(".");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+
+        //verify
+        assertEquals("Hex number", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
+        assertEquals("Hex signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
+        assertEquals("Binary number", driver.findElement(By.xpath("//*[@id='y5label']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
+        assertEquals("rgba(255, 240, 240, 1)", driver.findElement(By.xpath("//*[@id='x']")).getCssValue("background-color"));
     }
 
 }

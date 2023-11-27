@@ -402,7 +402,6 @@ public class RapidTablesTest {
     //Test Case 17 (Sam)
     @Test
     public void baseCaseOneDigitGroupingTest() {
-        //TODO
         //setup
         captcha();
 
@@ -410,19 +409,50 @@ public class RapidTablesTest {
         from.selectByVisibleText("Binary");
         Select to = new Select(driver.findElement(By.id("unit2")));
         to.selectByVisibleText("Decimal");
+        driver.findElement(By.id("x")).sendKeys("100010010100100010101001");
+
+        //execute
+        driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
+        driver.findElement(By.xpath("//*[@id='group']")).click();
+
+        //verify
+        assertEquals("Decimal number (7 digits)", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
+        assertEquals("8 997 033", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
+        assertEquals("Decimal from signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
+        assertEquals("N/A", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
+        assertEquals("Hex number (6 digits)", driver.findElement(By.xpath("//*[@id='y3label']")).getText());
+        assertEquals("89 48A9", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
+    }
+
+    // Test Case 18 (Sam)
+    @Test
+    public void baseCaseOneToChoiceToFromChoiceIsClickedTest() {
+        //setup
+        captcha();
+
+        Select from = new Select(driver.findElement(By.id("unit1")));
+        from.selectByVisibleText("Decimal");
+        Select to = new Select(driver.findElement(By.id("unit2")));
+        to.selectByVisibleText("Hexadecimal");
         driver.findElement(By.id("x")).sendKeys("1");
 
         //execute
         driver.findElement(By.xpath("//*[@id='calcform']/div[3]/button[1]")).click();
 
+        //execute again
+        driver.findElement(By.xpath("//*[@id='p1']/a")).click();
+
         //verify
-        assertEquals("Decimal number (1 digit)", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
-        assertEquals("1", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
-        assertEquals("Decimal from signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
-        assertEquals("N/A", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
-        assertEquals("Hex number (1 digit)", driver.findElement(By.xpath("//*[@id='y3label']")).getText());
-        assertEquals("1", driver.findElement(By.xpath("//*[@id='y3']")).getAttribute("value"));
+        assertEquals("Decimal to Binary Converter", driver.getTitle());
+        assertEquals("", driver.findElement(By.id("x")).getText());
+        assertEquals("Binary number", driver.findElement(By.xpath("//*[@id='ylabel']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y']")).getAttribute("value"));
+        assertEquals("Binary signed 2's complement", driver.findElement(By.xpath("//*[@id='y2label']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y2']")).getAttribute("value"));
+        assertEquals("Hex number", driver.findElement(By.xpath("//*[@id='y5label']")).getText());
+        assertEquals("", driver.findElement(By.xpath("//*[@id='y5']")).getAttribute("value"));
     }
+
 
     //Test Case 28 (Sam)
     @Test
